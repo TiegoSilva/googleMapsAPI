@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- div onde o mapa vai ser renderizado -->
+    <div id="map" style="width: 250px; height: 250px"></div>
+
+
+    <!-- scripts -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdLgu8gWkWlt5ki0SOjta1V8AVKfGyo1o&callback=initMap"></script>
+    <script>
+
+        //função a ser chamada pelo script acima
+        function initMap(){
+
+            //coordenadas do local a ser exibido
+            let coords = { lat: -22.7542657, lng: -43.4447002 }
+
+            //configurações do mapa
+            let mapOptions = { 
+                zoom: 17, 
+                center: coords,
+                scrollwheel: true,
+                scaleControl: false,
+                disableDefaultUI: true,
+                mapTypeId: google.maps.MapTypeId.ROADMAP
+            }
+
+            //renderezando o mapa na div identidicadda pelo id map
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+            //definindo um marcador, do local a ser exibido
+            var marker = new google.maps.Marker({
+                position: coords,
+                map: map,
+                title: 'NP Clube'
+            });
+        }
+       
+    </script>
+</body>
+</html>
